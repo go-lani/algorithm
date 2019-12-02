@@ -15,16 +15,12 @@
 // [mislav, stanko, mislav, ana]	[stanko, ana, mislav]	mislav
 
 function solution(participant, completion) {
-  let parts = [];
-  let comps = [];
-  let non = null;
+  participant.sort();
+  completion.sort();
 
-  parts = participant.sort();
-  comps = completion.sort();
-
-  for (let i = 0; i < parts.length; i++) {
-      if (parts[i] !== comps[i]) return non = parts[i];
+  for (let i = 0; i < completion.length; i++) {
+      if (participant[i] !== completion[i]) return participant[i];
   }
 
-  return non;
+  return participant[participant.length - 1];
 }
