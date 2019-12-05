@@ -6,32 +6,16 @@
 // const spaceCheck = /[\s]+/;
 
 function alphaString46(s) {
-  // if (s && !spaceCheck.test(s)) {
-  //   let num = +s;
+  if (!(s.length === 4 || s.length === 6)) return false;
 
-  //   if (s.length >= 4 && s.length <= 6) {
-  //     num ? console.log(true) : console.log(false);
-  //   } else {
-  //     console.log(false);
-  //   }
-  // } else {
-  //   console.log(false);
-  // }
-
-  if (!s || s.includes(' ')) return console.log(false);
-
-  if (s.length >= 4 && s.length <= 6) {
-    !isNaN(s) ? console.log(true) : console.log(false);
-  } else {
-    console.log(false);
+  for (let i = 0; i < s.length; i++) {
+     if (!(s.charCodeAt(i) >= 48 && s.charCodeAt(i) <= 57)) {
+         return false;
+     }
   }
-
-  // s && !spaceCheck.test(s) ? s.length >= 4 && s.length <= 6 ? (!isNaN(s) ? console.log(true) : console.log(false)) : console.log(false) : console.log(false);
+  return true;
 }
 
 alphaString46('1234'); // true
 alphaString46('9014'); // true
 alphaString46('723');  // false
-alphaString46('a234'); // false
-alphaString46('a');     // false
-alphaString46('1111');       // false
