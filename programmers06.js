@@ -1,31 +1,27 @@
-// 같은 숫자는 싫어
+// 행렬의 덧셈
 
 // 문제 설명
-// 배열 arr가 주어집니다.
-// 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다.
-// 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다.
-// 단, 제거된 후 남은 수들을 반환할 때는 배열 arr의 원소들의 순서를 유지해야 합니다.
-
-// 예를 들면,
-// arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.
-// arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
-// 배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
+// 행렬의 덧셈은 행과 열의 크기가 같은 두 행렬의 같은 행, 같은 열의 값을 서로 더한 결과가 됩니다.
+// 2개의 행렬 arr1과 arr2를 입력받아, 행렬 덧셈의 결과를 반환하는 함수, solution을 완성해주세요.
 
 // 제한사항
-// 배열 arr의 크기 : 1,000,000 이하의 자연수
-// 배열 arr의 원소의 크기 : 0보다 크거나 같고 9보다 작거나 같은 정수
+// 행렬 arr1, arr2의 행과 열의 길이는 500을 넘지 않습니다.
 
 // 입출력 예
 // arr
-// [1,1,3,3,0,1,1]
+// [[1,2],[2,3]]
+// arr2
+// [[3,4],[5,6]]
 // answer
-// [1,3,0,1]
+// [[4,6],[7,9]]
 
-function solution(arr) {
-    const result = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== arr[i - 1]) result.push(arr[i]);
+function solution(arr1, arr2) {
+    let result = [];
+    for (let i = 0; i < arr1.length; i++) {
+        const newArr = arr1[i].map((arr, index, self) => {
+            return arr + arr2[i][index];
+        });
+        result.push(newArr);
     }
-
-    return result
+    return result;
 }
