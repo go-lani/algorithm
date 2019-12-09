@@ -4,10 +4,18 @@
 // 2 이상의 n이 입력되었을 때, n번째 피보나치 수를 반환하는 fibonacci 함수를 작성하라. 예를 들어 n = 3이라면 2를 반환한다.
 
 function fibonacci(n) {
+  const arr = Array(n + 1).fill(0);
+  for (let i = 0; i < arr.length; i++) {
+    if (i === 1) arr[i] = 1;
+    if (i > 1) {
+      arr[i] = arr[i - 2] + arr[i - 1];
+    }
+  }
+  return arr[n];
 }
 
 // console.log(fibonacci(2)); // 1
 // console.log(fibonacci(3)); // 2
-console.log(fibonacci(4)); // 3
+// console.log(fibonacci(4)); // 3
 // console.log(fibonacci(5)); // 5
 // console.log(fibonacci(6)); // 8
