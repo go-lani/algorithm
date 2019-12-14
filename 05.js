@@ -5,18 +5,20 @@
 // 주의) 문자열 전체의 짝/홀수 인덱스가 아니라 단어(공백을 기준)별로 짝/홀수 인덱스를 판단한다.
 
 function toWeirdCase(s) {
-  const strArr = s.split(' ');
-  let newStr = '';
+  let result = '';
+  let counter = 0;
 
-  for (let i = 0; i < strArr.length; i++) {
-    newStr += ' ';
-
-    for (let j = 0; j < strArr[i].length; j++) {
-      const cnt = j + 1;
-      cnt % 2 ? newStr += strArr[i][j].toUpperCase() : newStr += strArr[i][j];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === ' ') {
+      counter = 0;
+      result += s[i];
+      continue;
     }
+    counter % 2 === 0 ? result += s[i].toUpperCase() : result += s[i].toLowerCase();
+    counter++;
   }
-  newStr.trim());
+
+  return result;
 }
 
 console.log(toWeirdCase('hello world'));    // 'HeLlO WoRlD'
