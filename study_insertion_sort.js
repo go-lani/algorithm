@@ -9,10 +9,8 @@
 function randomArray(array, length) {
   const n = Math.floor(Math.random() * 100) + 1;
 
-  if (array.length < length && array.indexOf(n) < 0) {
-    array.push(n);
-    return randomArray(array, length);
-  } else if (array.length < length) {
+  if (array.length < length) {
+    if (array.indexOf(n) < 0) array.push(n);
     return randomArray(array, length);
   } else {
     return array;
