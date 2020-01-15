@@ -7,7 +7,7 @@
 
 // 중복없는 난수 배열 만드는 함수
 function randomArray(array, length) {
-  const n = Math.floor(Math.random() * 100) + 1;
+  const n = Math.floor(Math.random() * (length * 2)) + 1;
 
   if (array.length < length) {
     if (array.indexOf(n) < 0) array.push(n);
