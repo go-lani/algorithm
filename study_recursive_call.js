@@ -18,7 +18,6 @@ function randomArray(array, length) {
 
 // 예제 1
 // 1부터 num까지의 곱이 출력되게 만들어라
-
 function multiple(num) {
   // 반복문을 활용
   // let result = 1;
